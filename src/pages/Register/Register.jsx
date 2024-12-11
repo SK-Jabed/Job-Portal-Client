@@ -5,10 +5,12 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
 import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json"
+import AuthContext from "../../context/AuthContext/AuthContext";
+
 
 const Register = () => {
-//   const { createNewUser, signInWithGoogle, user, setUser, updateUserProfile } =
-//     useContext(authContext);
+  const { createUser, signInWithGoogle, user, setUser, updateUserProfile } =
+    useContext(AuthContext);
 
 //   const navigate = useNavigate();
 
@@ -35,6 +37,8 @@ const Register = () => {
     const confirmPassword = e.target.confirmPassword.value;
     const terms = e.target.terms.checked;
 
+    console.log(name, email, password, photo, confirmPassword, terms);
+
     if (password.length < 6) {
       setError("Password must contain at least 6 characters");
       return;
@@ -56,21 +60,21 @@ const Register = () => {
       return;
     }
 
-    createNewUser(email, password)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
-        setUser(user);
-        updateUserProfile({ displayName: name, photoURL: photo })
-          .then(() => {
-            navigate("/");
-          })
-          .catch((err) => {
-            // console.log(err);
-          });
+        // setUser(user);
+        console.log(user);
+        // updateUserProfile({ displayName: name, photoURL: photo })
+        //   .then(() => {
+        //     navigate("/");
+        //   })
+        //   .catch((err) => {
+        //     // console.log(err);
+        //   });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.log(error.message);
       });
   };
 
@@ -156,7 +160,7 @@ const Register = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </Link>
             </div>
-            {/* {error && <p className="font-semibold text-red-500">{error}</p>} */}
+            {error && <p className="font-semibold text-red-500">{error}</p>}
             <div className="form-control">
               <label className="label justify-start gap-2 cursor-pointer items-center">
                 <input

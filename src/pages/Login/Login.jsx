@@ -3,10 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import Lottie from "lottie-react";
+import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
 
 const Login = () => {
-//   const { loginUser, signInWithGoogle, setUser, setEmail } =
-//     useContext(authContext);
+  const { loginUser, signInWithGoogle, setUser, setEmail } =
+    useContext(AuthContext);
 
   const [error, setError] = useState();
   const [showPassword, setShowPassword] = useState(false);
@@ -23,28 +26,29 @@ const Login = () => {
 //       .catch((error) => setError("ERROR", error.message));
 //   };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const email = e.target.email.value;
-//     const password = e.target.password.value;
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-//     setEmail(email); // Update the global email state
-//     loginUser(email, password)
-//       .then((result) => {
-//         const user = result.user;
-//         setUser(user);
-//         navigate(location?.state ? location.state : "/");
-//       })
-//       .catch((err) => setError(err.message));
-//   };
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        // setUser(user);
+        console.log(user);
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => setError(err.message));
+  };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-around items-center">
       <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl rounded-none px-[53px] py-[56px]">
         <h2 className="text-2xl font-semibold text-[#403F3F] text-center pb-8 border-b-2">
           Login your account
         </h2>
-        <form className="card-body">
+        <form onSubmit={handleLogin} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email address</span>
@@ -104,7 +108,7 @@ const Login = () => {
         <div>
           <div className="flex flex-col gap-2">
             <button
-            //   onClick={handleGoogleSignIn}
+              //   onClick={handleGoogleSignIn}
               className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
             >
               <RiGoogleFill />
@@ -113,6 +117,9 @@ const Login = () => {
           </div>
         </div>
       </div>
+        <div className="text-center lg:text-left w-[450px]">
+          <Lottie animationData={registerLottieAnimation}></Lottie>
+        </div>
     </div>
   );
 };
