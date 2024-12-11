@@ -9,22 +9,22 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 
 
 const Register = () => {
-  const { createUser, signInWithGoogle, user, setUser, updateUserProfile } =
+  const { createUser, singInWithGoogle, user, setUser, updateUserProfile } =
     useContext(AuthContext);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-//   const handleGoogleSignIn = () => {
-//     signInWithGoogle()
-//       .then((result) => {
-//         setUser(result.user);
-//         navigate("/");
-//       })
-//       .catch((error) => setError("ERROR", error.message));
-//   };
+  const handleGoogleSignIn = () => {
+    singInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+      })
+      .catch((error) => setError("ERROR", error.message));
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -79,7 +79,6 @@ const Register = () => {
   };
 
   return (
-
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left w-[450px]">
@@ -185,7 +184,18 @@ const Register = () => {
               Login
             </Link>
           </p>
-          {/* <SocialLogin></SocialLogin> */}
+          <div className="divider">OR</div>
+          <div>
+            <div className="flex flex-col gap-2">
+              <button
+                  onClick={handleGoogleSignIn}
+                className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
+              >
+                <RiGoogleFill />
+                Login with Google
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

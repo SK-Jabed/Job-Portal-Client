@@ -8,7 +8,7 @@ import Lottie from "lottie-react";
 import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
 
 const Login = () => {
-  const { loginUser, signInWithGoogle, setUser, setEmail } =
+  const { loginUser, singInWithGoogle, setUser, setEmail } =
     useContext(AuthContext);
 
   const [error, setError] = useState();
@@ -17,14 +17,15 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-//   const handleGoogleSignIn = () => {
-//     signInWithGoogle()
-//       .then((result) => {
-//         setUser(result.user);
-//         navigate(location?.state ? location.state : "/");
-//       })
-//       .catch((error) => setError("ERROR", error.message));
-//   };
+  const handleGoogleSignIn = () => {
+    singInWithGoogle()
+      .then((result) => {
+        // setUser(result.user);
+        console.log(result.user);
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => setError("ERROR", error.message));
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -108,7 +109,7 @@ const Login = () => {
         <div>
           <div className="flex flex-col gap-2">
             <button
-              //   onClick={handleGoogleSignIn}
+              onClick={handleGoogleSignIn}
               className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
             >
               <RiGoogleFill />
