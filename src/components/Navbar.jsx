@@ -87,6 +87,7 @@ const Navbar = () => {
                     src={user?.photoURL}
                     alt=""
                   /> */}
+                  <Link to={"/auth/register"}>Register</Link>
                 <Link
                   to={"/auth/login"}
                   type="button"
