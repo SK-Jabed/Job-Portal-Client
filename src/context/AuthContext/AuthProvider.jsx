@@ -96,7 +96,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const signOutUser = () => {
+  const logoutUser = () => {
     setLoading(true);
     return signOut(auth);
   };
@@ -118,7 +118,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     loginUser,
     singInWithGoogle,
-    signOutUser,
+    logoutUser,
   };
 
   return (
