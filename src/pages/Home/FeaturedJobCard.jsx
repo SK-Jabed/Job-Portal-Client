@@ -51,7 +51,7 @@ const FeaturedJobCard = ({ job }) => {
             {salaryRange.max} {salaryRange.currency}
           </p>
 
-          <Link to={`/jobs/${_id}`}>
+          <Link to={`/allJobs/${_id}`}>
             <button className="btn btn-primary">Apply</button>
           </Link>
         </div>
