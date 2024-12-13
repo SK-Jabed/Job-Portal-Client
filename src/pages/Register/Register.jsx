@@ -20,7 +20,8 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     singInWithGoogle()
       .then((result) => {
-        setUser(result.user);
+        // setUser(result.user);
+        console.log(result.user);
         navigate("/");
       })
       .catch((error) => setError("ERROR", error.message));
@@ -65,6 +66,7 @@ const Register = () => {
         const user = result.user;
         // setUser(user);
         console.log(user);
+        navigate("/");
         // updateUserProfile({ displayName: name, photoURL: photo })
         //   .then(() => {
         //     navigate("/");

@@ -14,15 +14,24 @@ const Login = () => {
   const [error, setError] = useState();
   const [showPassword, setShowPassword] = useState(false);
 
+  // const location = useLocation();
+  // // const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const location = useLocation();
   const navigate = useNavigate();
+
+  console.log("In sign page", location);
+  const from = location.state || "/";
 
   const handleGoogleSignIn = () => {
     singInWithGoogle()
       .then((result) => {
         // setUser(result.user);
+        // navigate(from);
         console.log(result.user);
         // navigate(location?.state ? location.state : "/");
+        navigate(from);
       })
       .catch((error) => setError("ERROR", error.message));
   };
@@ -38,7 +47,10 @@ const Login = () => {
         const user = result.user;
         // setUser(user);
         console.log(user);
+        navigate("/auth/register");
+        // console.log(user);
         // navigate(location?.state ? location.state : "/");
+        navigate(from);
       })
       .catch((err) => setError(err.message));
   };
