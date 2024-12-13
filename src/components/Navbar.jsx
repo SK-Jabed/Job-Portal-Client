@@ -38,9 +38,9 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400"
           }
-        //   to={"/campaigns"}
+          to={"/allJobs"}
         >
-          Donation Campaigns
+          All Jobs
         </NavLink>
       </li>
       <li>
@@ -50,7 +50,7 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400"
           }
-        //   to={"/howToHelp"}
+          //   to={"/howToHelp"}
         >
           How to Help
         </NavLink>
