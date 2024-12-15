@@ -7,7 +7,7 @@ const AddJob = () => {
 
   const handleAddJob = (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     // console.log(formData.entries())
     const initialData = Object.fromEntries(formData.entries());
@@ -30,7 +30,7 @@ const AddJob = () => {
       .then((data) => {
         if (data.insertedId) {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Job Has been added.",
             showConfirmButton: false,
@@ -194,6 +194,7 @@ const AddJob = () => {
           </label>
           <input
             type="text"
+            defaultValue={user?.displayName}
             name="hr_name"
             placeholder="HR Name"
             className="input input-bordered"
