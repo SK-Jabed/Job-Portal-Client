@@ -1,12 +1,13 @@
 import React from "react";
-// import Swal from "sweetalert2";
-// import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const AddJob = () => {
-//   const { user } = useAuth();
+  const { user } = useAuth();
 
   const handleAddJob = (e) => {
     e.preventDefault();
+    
     const formData = new FormData(e.target);
     // console.log(formData.entries())
     const initialData = Object.fromEntries(formData.entries());
@@ -18,7 +19,7 @@ const AddJob = () => {
     newJob.responsibilities = newJob.responsibilities.split("\n");
     console.log(newJob);
 
-    fetch("http://localhost:5000/jobs", {
+    fetch("http://localhost:3000/allJobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,7 +36,7 @@ const AddJob = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/myPostedJobs");
+          // navigate("/myPostedJobs");
         }
       });
   };
@@ -44,7 +45,7 @@ const AddJob = () => {
     <div>
       <h2 className="text-3xl">Post a new Job</h2>
       <form onSubmit={handleAddJob} className="card-body">
-        {/* Job title */}
+        {/* Job Title */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Title</span>
@@ -57,7 +58,7 @@ const AddJob = () => {
             required
           />
         </div>
-        {/* job location */}
+        {/* Job Location */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Location</span>
@@ -70,7 +71,7 @@ const AddJob = () => {
             required
           />
         </div>
-        {/* job Type */}
+        {/* Job Type */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Type</span>
@@ -85,7 +86,7 @@ const AddJob = () => {
             <option>Part-time</option>
           </select>
         </div>
-        {/* job Type */}
+        {/* Job Type */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Field</span>
@@ -101,7 +102,7 @@ const AddJob = () => {
             <option>Teaching</option>
           </select>
         </div>
-        {/* salary range */}
+        {/* Salary Range */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-end">
           <div className="form-control">
             <label className="label">
@@ -162,7 +163,7 @@ const AddJob = () => {
             required
           />
         </div>
-        {/* requirements */}
+        {/* Requirements */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Requirements</span>
@@ -174,7 +175,7 @@ const AddJob = () => {
             required
           ></textarea>
         </div>
-        {/* responsibilities */}
+        {/* Responsibilities */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Job Responsibilities</span>
@@ -214,7 +215,7 @@ const AddJob = () => {
             required
           />
         </div>
-        {/* application Deadline */}
+        {/* Application Deadline */}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Deadline</span>
@@ -240,7 +241,7 @@ const AddJob = () => {
             required
           />
         </div>
-        {/* submit button */}
+        {/* Submit Button */}
         <div className="form-control mt-6">
           <button className="btn btn-primary">Submit</button>
         </div>
