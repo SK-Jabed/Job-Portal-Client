@@ -50,9 +50,9 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400"
           }
-          //   to={"/howToHelp"}
+          to={"/myApplications"}
         >
-          How to Help
+          My Applications
         </NavLink>
       </li>
     </>
