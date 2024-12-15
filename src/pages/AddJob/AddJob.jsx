@@ -36,7 +36,6 @@ const AddJob = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          // navigate("/myPostedJobs");
         }
       });
   };
