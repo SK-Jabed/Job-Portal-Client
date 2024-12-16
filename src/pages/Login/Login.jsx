@@ -6,6 +6,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Lottie from "lottie-react";
 import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
+import axios from "axios";
 
 const Login = () => {
   const { loginUser, singInWithGoogle, setUser, setEmail } =
@@ -29,9 +30,16 @@ const Login = () => {
       .then((result) => {
         // setUser(result.user);
         // navigate(from);
-        console.log(result.user);
+        console.log(result.user.email);
+
+        const user = { email: email }
+
+        axios.post("http://localhost:3000/jwt", user)
+        .then(data => {
+          console.log(data);
+        })
         // navigate(location?.state ? location.state : "/");
-        navigate(from);
+        // navigate(from);
       })
       .catch((error) => setError("ERROR", error.message));
   };
@@ -44,13 +52,21 @@ const Login = () => {
 
     loginUser(email, password)
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         // setUser(user);
-        console.log(user);
-        navigate("/auth/register");
+        console.log(result.user.email);
+
+        const user = { email: email };
+
+        axios.post("http://localhost:3000/jwt", user)
+        .then(res => {
+          console.log(res.data);
+        })
+
+        // navigate("/auth/register");
         // console.log(user);
         // navigate(location?.state ? location.state : "/");
-        navigate(from);
+        // navigate(from);
       })
       .catch((err) => setError(err.message));
   };
