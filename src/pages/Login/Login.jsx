@@ -56,9 +56,9 @@ const Login = () => {
         // setUser(user);
         console.log(result.user.email);
 
-        const user = { email: email };
+        const user = { email: result.user.email };
 
-        axios.post("http://localhost:3000/jwt", user)
+        axios.post("http://localhost:3000/jwt", user, {withCredentials: true})
         .then(res => {
           console.log(res.data);
         })
