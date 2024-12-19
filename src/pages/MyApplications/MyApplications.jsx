@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyApplications = () => {
