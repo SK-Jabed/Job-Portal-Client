@@ -1,12 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { RiGoogleFill } from "react-icons/ri";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
-import AuthContext from "../../context/AuthContext/AuthContext";
-import Lottie from "lottie-react";
-import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
 import axios from "axios";
+import Lottie from "lottie-react";
+import React, { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { RiGoogleFill } from "react-icons/ri";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Login = () => {
   const { loginUser, singInWithGoogle, setUser, setEmail } =
@@ -32,12 +31,13 @@ const Login = () => {
         // navigate(from);
         console.log(result.user.email);
 
-        const user = { email: email }
+        const user = { email: email };
 
-        axios.post("http://localhost:3000/jwt", user)
-        .then(data => {
-          console.log(data);
-        })
+        axios
+          .post("https://job-portal-server-rosy-eight.vercel.app/jwt", user)
+          .then((data) => {
+            console.log(data);
+          });
         // navigate(location?.state ? location.state : "/");
         // navigate(from);
       })
@@ -58,10 +58,13 @@ const Login = () => {
 
         const user = { email: result.user.email };
 
-        axios.post("http://localhost:3000/jwt", user, {withCredentials: true})
-        .then(res => {
-          console.log(res.data);
-        })
+        axios
+          .post("https://job-portal-server-rosy-eight.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
 
         // navigate("/auth/register");
         // console.log(user);
@@ -146,9 +149,9 @@ const Login = () => {
           </div>
         </div>
       </div>
-        <div className="text-center lg:text-left w-[450px]">
-          <Lottie animationData={registerLottieAnimation}></Lottie>
-        </div>
+      <div className="text-center lg:text-left w-[450px]">
+        <Lottie animationData={registerLottieAnimation}></Lottie>
+      </div>
     </div>
   );
 };

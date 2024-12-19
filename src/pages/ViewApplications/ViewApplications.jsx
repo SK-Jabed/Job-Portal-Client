@@ -11,13 +11,16 @@ const ViewApplications = () => {
     const data = {
       status: e.target.value,
     };
-    fetch(`http://localhost:3000/job-applications/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://job-portal-server-rosy-eight.vercel.app/job-applications/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

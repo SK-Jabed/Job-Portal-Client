@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import AuthContext from "./AuthContext";
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -8,9 +7,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import auth from "../../firebase/firebase.config";
-import axios from "axios";
-
+import AuthContext from "./AuthContext";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -46,21 +45,28 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
 
-        axios.post("http://localhost:3000/jwt", user, { withCredentials: true })
-        .then(res => {
-          console.log("login token", res.data);
-          setLoading(false);
-        })
+        axios
+          .post("https://job-portal-server-rosy-eight.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("login token", res.data);
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post(
+            "https://job-portal-server-rosy-eight.vercel.app/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoading(false);
+          });
       }
-      else {
-        axios.post("http://localhost:3000/logout", {}, {
-          withCredentials: true
-        })
-        .then(res => {
-          console.log("logout", res.data);
-          setLoading(false);
-        })
-      } 
     });
 
     return () => {

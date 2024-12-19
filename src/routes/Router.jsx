@@ -1,18 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
-import NotFound from "../pages/NotFound/NotFound";
-import Home from "../pages/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
-import Register from "../pages/Register/Register";
-import Login from "../pages/Login/Login";
-import JobDetails from "../pages/JobDetails/JobDetails";
-import PrivateRoute from "./PrivateRoute";
-import JobApply from "../pages/JobApply/JobApply";
-import AllJobs from "../pages/AllJobs/AllJobs";
+import MainLayout from "../layouts/MainLayout";
 import AddJob from "../pages/AddJob/AddJob";
+import AllJobs from "../pages/AllJobs/AllJobs";
+import Home from "../pages/Home/Home";
+import JobApply from "../pages/JobApply/JobApply";
+import JobDetails from "../pages/JobDetails/JobDetails";
+import Login from "../pages/Login/Login";
 import MyApplications from "../pages/MyApplications/MyApplications";
 import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
+import NotFound from "../pages/NotFound/NotFound";
+import Register from "../pages/Register/Register";
 import ViewApplications from "../pages/ViewApplications/ViewApplications";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             <AllJobs></AllJobs>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/allJobs"),
+        loader: () =>
+          fetch("https://job-portal-server-rosy-eight.vercel.app/allJobs"),
       },
       {
         path: "/allJobs/:id",
@@ -40,7 +41,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/allJobs/${params.id}`),
+          fetch(
+            `https://job-portal-server-rosy-eight.vercel.app/allJobs/${params.id}`
+          ),
       },
       {
         path: "/addJob",
@@ -83,7 +86,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/job-applications/jobs/${params.job_id}`
+            `https://job-portal-server-rosy-eight.vercel.app/job-applications/jobs/${params.job_id}`
           ),
       },
     ],

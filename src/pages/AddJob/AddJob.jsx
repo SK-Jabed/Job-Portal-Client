@@ -19,7 +19,7 @@ const AddJob = () => {
     newJob.responsibilities = newJob.responsibilities.split("\n");
     console.log(newJob);
 
-    fetch("http://localhost:3000/allJobs", {
+    fetch("https://job-portal-server-rosy-eight.vercel.app/allJobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
