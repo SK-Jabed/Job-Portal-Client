@@ -9,7 +9,7 @@ const AllJobs = () => {
             All Jobs are here: {jobs.length}
             <div>
                 {
-                    jobs.map(job => <div>
+                    jobs.map(job => <div key={jobs._id}>
                         {jobs.title}
                     </div>)
                 }
