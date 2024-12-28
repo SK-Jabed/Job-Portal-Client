@@ -108,7 +108,7 @@ const AddJob = () => {
               <span className="label-text">Salary Range</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="min"
               placeholder="Min"
               className="input input-bordered"
@@ -117,7 +117,7 @@ const AddJob = () => {
           </div>
           <div className="form-control">
             <input
-              type="text"
+              type="number"
               name="max"
               placeholder="Max "
               className="input input-bordered"
@@ -198,6 +198,7 @@ const AddJob = () => {
             placeholder="HR Name"
             className="input input-bordered"
             required
+            readOnly
           />
         </div>
 
@@ -213,6 +214,7 @@ const AddJob = () => {
             placeholder="HR Email"
             className="input input-bordered"
             required
+            readOnly
           />
         </div>
         {/* Application Deadline */}
