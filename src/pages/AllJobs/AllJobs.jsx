@@ -5,7 +5,6 @@ import FeaturedJobCard from '../Home/FeaturedJobCard';
 const AllJobs = () => {
     const jobs = useLoaderData();
     const [sort, setSort] = useState(false);
-    
     console.log(sort);
 
     return (
