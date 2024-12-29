@@ -103,11 +103,6 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="flex items-center gap-1">
-              {/* <img
-                className="w-12 rounded-full hidden md:block"
-                src={logo}
-                alt="Project Logo"
-              ></img> */}
               <h2 className="text-2xl font-bold text-cyan-600 ml-4 md:ml-0">
                 WARMTH <span className="text-sky-400">CARE</span>
               </h2>
