@@ -14,7 +14,6 @@ const FeaturedJobCard = ({ job }) => {
     salaryRange,
   } = job;
 
-  
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <div className="flex gap-2 m-2">
