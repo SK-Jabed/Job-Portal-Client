@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import AuthContext from "../context/AuthContext/AuthContext";
-// import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -12,10 +11,10 @@ const Navbar = () => {
       .then(() => {
         console.log("Successfully Logged Out");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("Failed to Logout");
-      })
-  }
+      });
+  };
 
   const navLinks = (
     <>
@@ -116,7 +115,7 @@ const Navbar = () => {
               <div className="flex items-center gap-3">
                 {user && user.email ? (
                   <button
-                  onClick={handleLogout}
+                    onClick={handleLogout}
                     type="button"
                     className="group flex h-14 w-full items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
                   >
@@ -138,11 +137,6 @@ const Navbar = () => {
                     </Link>
                   </div>
                 )}
-                {/* <img
-                    className="w-12 rounded-full"
-                    src={user?.photoURL}
-                    alt=""
-                  /> */}
               </div>
             </div>
           </div>
