@@ -7,7 +7,6 @@ import Lottie from "lottie-react";
 import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json"
 import AuthContext from "../../context/AuthContext/AuthContext";
 
-
 const Register = () => {
   const { createUser, singInWithGoogle, user, setUser, updateUserProfile } =
     useContext(AuthContext);
