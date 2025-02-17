@@ -4,7 +4,7 @@ import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
-import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json"
+import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
@@ -189,7 +189,7 @@ const Register = () => {
           <div>
             <div className="flex flex-col gap-2">
               <button
-                  onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
                 className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
               >
                 <RiGoogleFill />
