@@ -7,6 +7,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerLottieAnimation from "../../assets/Lottie-Animation/Register-Animation.json";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
+
+
 const Login = () => {
   const { loginUser, singInWithGoogle, setUser, setEmail } =
     useContext(AuthContext);
