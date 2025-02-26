@@ -9,8 +9,6 @@ const MyApplications = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-
-
     axiosSecure
       .get(`/job-application?email=${user.email}`)
       .then((res) => setJobs(res.data));

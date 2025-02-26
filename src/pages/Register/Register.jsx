@@ -36,7 +36,6 @@ const Register = () => {
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
     const terms = e.target.terms.checked;
-
     console.log(name, email, password, photo, confirmPassword, terms);
 
     if (password.length < 6) {
